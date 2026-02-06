@@ -1,0 +1,17 @@
+
+@use 'tokens' as *;
+@mixin card {
+  background: $color-white; 
+}
+
+@mixin respond-md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin card {
+  background: $color-white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}

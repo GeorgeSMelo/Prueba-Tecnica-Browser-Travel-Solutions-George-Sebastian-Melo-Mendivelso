@@ -1,0 +1,555 @@
+@use '@/styles/tokens.scss' as *;
+
+.cardLayout {
+  display: grid;
+  grid-template-columns: 260px 1fr; // preview | cards
+  gap: 24px;
+  align-items: start;
+}
+
+.cardMain {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 2fr auto;
+  align-items: center;
+  gap: 16px;
+}
+.cards {
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 50%;
+  position: relative;
+  background: $color-white-bg;
+  padding: 20px;
+  border-radius: 9px;
+  border: 1px solid $color-white-bg;
+  border-top: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+/*TARJETA PRINCIPAL*/
+.card {
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1 1 50%;
+  position: relative;
+  background: $color-light-gray;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid $color-light-gray;
+  border-top: none;
+  
+
+  /* HEADER interno */
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid $color-light-gray;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* BRAND GROUP */
+  .brandGroup {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: bold;
+      color: $color-lime;
+    }
+  }
+}
+
+/*WRAPPER */
+.cardWrapper {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    color: $color-steel-gray;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: $color-steel-gray;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+
+.seal {
+  position: flex;
+  top: 16px;
+  right: 16px;
+}
+
+
+/* BODY  */
+.cardBody {
+  display: grid;
+  gap: 16px;
+}
+.leftColumn {
+  display: flex;
+  gap: 16px;
+}
+.media {
+  img {
+    object-fit: contain;
+  }
+}
+
+.features {
+  display: flex;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: $color-steel-gray;
+  }
+}
+
+
+
+
+/* Desktop */
+@media (min-width: $bp-md) {
+  .cardBody {
+    grid-template-columns: 220px 1fr 360px;
+    align-items: center;
+    .reservaCard{
+      display: flex;
+    }
+  }
+}
+
+/*MEDIA*/
+.media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: $color-dark-purple;
+  margin: 0;
+}
+
+
+.info ul {
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  margin: 4px 0 0;
+  list-style: none;
+  font-size: 13px;
+}
+.seal {
+  position: absolute;
+  top: 12px;
+  left: auto;
+  right: 12px;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .cardWrapper {
+    flex-direction: column;
+  }
+}
+
+
+
+/*PRECIO y RESERVAS*/
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: $color-white-bg;
+  flex: 1 1 50%;
+  min-width: unset; 
+}
+
+.reservasContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.reservaCard {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $color-white-bg;
+  border-radius: 12px;
+  padding: 14px;
+  transition: all 0.2s ease;
+
+
+  &.destacada {
+    border-color: $color-translucent; 
+  }
+}
+
+
+/* Columna Textos: seguros y sin seguros */
+.reservaLeft {
+  flex: 1;
+  .tipo {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: $color-steel-gray;
+    strong { color: $color-bright-blue; }
+  }
+}
+.reservaLeftSinSeguros {
+  flex: 1;
+  .tipo {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: $color-steel-gray;
+    strong { color: $color-dark-purple; }
+  }
+}
+
+.segurosList {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: $color-green; 
+  margin-bottom: 8px;
+  span { display: flex; align-items: center; gap: 4px; }
+}
+.sinsegurosList {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: $color-gray-text; 
+  margin-bottom: 8px;
+  span { display: flex; align-items: center; gap: 4px; }
+}
+
+.reservaFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  .verDetalles { color: $color-gray-text; cursor: pointer; }
+}
+
+
+.badgeBlue {
+  border: 1.5px solid $color-sky-blue;
+  color: $color-sky-blue;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+/* Columna Central: Precios */
+.reservaRight {
+  text-align: right;
+  min-width: 140px;
+
+  .priceTop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .precioAnterior {
+    text-decoration: line-through;
+    color: $color-gray-text;
+    font-size: 12px;
+  }
+
+  .tagDescuento {
+    background: $color-red;
+    color: $color-white-bg;
+    font-size: 11px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  .monto {
+    font-size: 22px;
+    font-weight: 800;
+    color: $color-dark-purple;
+  }
+
+  .dia { font-size: 12px; color: $color-gray-text; }
+  .totalPrice { font-size: 11px; color: $color-gray-text; margin-top: 2px; }
+}
+
+
+.descuento {
+  color: $color-red;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/*BOTONES*/
+.reservarBtn {
+  width: 140px;
+  height: 44px;
+  background: linear-gradient(90deg, $color-aqua, $color-bright-blue);
+  color: $color-white-bg;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+    transition: opacity 0.25s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+$gradient: linear-gradient(90deg, $color-aqua, $color-bright-blue);
+
+.btnReservarOutline {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+
+  /* Texto bicolor */
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px; 
+    border-radius: 8px;
+    background: $gradient;
+    -webkit-mask:
+      linear-gradient($color-white-bg 0 0) content-box,
+      linear-gradient($color-white-bg 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    z-index: -1;
+  }
+
+  transition: opacity 0.25s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+.reservaCard.sinSeguro {
+  display: none; 
+
+  @media (min-width: $bp-md) {
+    display: flex; 
+  }
+}
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: $font-base;
+}
+
+/* Tarjeta Sin Seguro */
+.reservaCard.sinSeguro {
+  display: none; 
+
+  @media (min-width: $bp-md) {
+    display: flex;
+  }
+}
+
+/*Cabeza de Pagina*/
+.pageHeader {
+  width: 100%;
+  background: $color-white-bg;
+  border-bottom: 1px solid $color-white-bg;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.topActions {
+  display: flex;
+  gap: 35px;
+  font-weight: 700;
+  font-size: 14px;
+  color: $color-dark-purple;
+  align-items: center;
+
+  span {
+    cursor: pointer;
+  }
+
+  img {
+    margin-right: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topActions {
+    gap: 22px;
+
+    span {
+      display: none;
+    }
+
+    img {
+      margin-right: 20;
+    }
+  }
+}
+
+/* Sub bar */
+.subBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $color-light-blue;
+  padding: 12px 24px;
+}
+
+.results {
+  display: flex;
+  font-family: $font-base;
+  gap: 10px;
+  font-size: 18px;
+  color: $color-dark-purple;
+
+  span {
+    color: $color-gray-text;
+    font-size: 12px;
+  }
+}
+
+.priceFrom {
+  font-size: 14px;
+  color: $color-gray-text;
+
+  strong {
+    font-size: 18px;
+    color: $color-bright-blue;
+    margin: 0 4px;
+  }
+}
+
+.model {
+  color: $color-dark-purple;
+  font-size: 14px;
+}
+
+.or {
+  color: $color-gray-text;
+  font-size: 10px;
+}
+
+.similar {
+  color: $color-bright-blue;
+  font-weight: 600;
+  font-size: 11px ;
+}
+.verDetalles {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; 
+  cursor: pointer;
+}
+
+
+.priceFrom {
+  font-family: $font-base;
+}
+
+.topLine {
+  display: flex;          
+  align-items: center;
+  gap: 4px;                
+  margin-bottom: 2px;      
+}
+
+.plus {
+  color: $color-bright-blue; 
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.prefix {
+  color: $color-gray-text;
+  font-size: 0.875rem;
+}
+
+.amounts {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+
+  .prices {
+    font-weight: 700; 
+    font-size: 1.25rem;
+    color: $color-dark-purple; 
+  }
+
+  .suffix {
+    font-size: 0.75rem;
+    color: $color-gray-text; 
+  }
+}
